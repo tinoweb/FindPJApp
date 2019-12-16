@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="38" id="com.controlcondo.phonega" version="1.2.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>ControlCondoMobile</name>
+<widget android-versionCode="38" id="com.buscaempresa.phonega" version="1.2.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>BUSCA CNPJ</name>
     <description>
-        Aplicativo ControlCondoMobile.
+        Aplicativo BuscaEmpresa.
     </description>
-    <author email="rbelli@firstcontrol.com.br" href="https://www.controlcondo.com.br">
+    <author email="tino477@gmail.com" href="https://www.arturinfo.com.br">
        First Control Sistemas Inteligentes Ltda. Epp
     </author>
     <content src="index.html" />

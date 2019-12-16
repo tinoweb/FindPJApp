@@ -84,6 +84,10 @@
     },
     "cordova-plugin-appavailability": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "mycoolapp",
+      "PACKAGE_NAME": "io.cordova.hellocordova"
     }
   },
   "dependent_plugins": {
