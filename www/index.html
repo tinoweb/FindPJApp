@@ -147,21 +147,13 @@
 		<!--############ Tela do primero acesso ############## -->
 		<div id="initApp" class="login_iniNew">
 			<img src="http://www.mgarmaquinas.com.br/wp-content/uploads/2014/07/MGAR.png" width="150">
-			<div id="formInit" class="form-signin" style="top: 64px;position: relative;padding: 15px 14px;"> 
+			<!-- <h3>Busca Informacoes <br><br> pelo <br><br> CNPJ</h3> -->
+			<div id="formInit" class="form-signin" style="top: 30px position: relative;padding: 15px 14px;"> 
 				<div class="row" style="position: relative; padding: 12px;">
-					<div class="col-xs-12">
-						<button class="btn btn-default btn-lg btn-block btn-no-border" onclick="swich_tela_login();">Entrar com e-mail</button>
-					</div>
-					<!-- <div class="col-xs-6" style="position: relative;top: 14px;">
-						<button class="btn btn-primary btn-lg btn-block btn-no-border" name="entrar"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</button>
-					</div>
-					<div class="col-xs-6" style="position: relative;top: 14px;">
-						<button class="btn btn-lg btn-danger btn-block btn-no-border"><i class="fa fa-google" aria-hidden="true"></i> Google</button>
-					</div>
-					<div class="col-xs-12" style="position: relative;top: 48px;">
-						<a style="color: #919b97;" onclick="swich_tela_primeiroAcesso()">Primeiro Acesso?</a>
-					</div> -->
+					<input type="text" id="inputCNPJ" class="form-control input-lg" name="cnpj" >
 					<br>
+					
+					<button style="position: relative; top: 20px; padding: 15px 14px;" class="btn btn-block btn-lg btn-primary" onclick="findEmpresa($('#inputCNPJ').val())">Buscar</button>
 				</div>
 			</div>
 		</div>

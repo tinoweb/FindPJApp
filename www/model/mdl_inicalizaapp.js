@@ -1,5 +1,26 @@
 // DONE BY TINO 22/10/2019
 
+findEmpresa = (data) => {
+	var url = `https://www.receitaws.com.br/v1/cnpj/${data}`;
+	console.log(url);
+	$.ajax({
+		type: 'GET',
+		url: `https://www.receitaws.com.br/v1/cnpj/${data}`,
+		crossDomain: true,
+		// beforeSend : function() { $("#wait").css("display", "block"); },
+		// complete   : function() { $("#wait").css("display", "none"); },
+        data       : {},
+        dataType   : 'json',
+		success: function(retorno){
+			console.log(retorno);
+        },
+        error: function(error) {
+        	console.log("tem informacoes com erro");
+			console.log(error);
+        }
+	});	
+}
+
 function swich_tela_login(){
 	afed('#login_ini','#initApp','','');
 	app2.sheet.create({
