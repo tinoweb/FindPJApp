@@ -9,7 +9,7 @@
     </author>
     <content src="index.html" />
     <preference name="phonegap-version" value="cli-8.1.1" />
-    <preference name="DisallowOverscroll" value="true" />
+    <preference name="DisallowOverscroll" value="false" />
     <preference name="show-splash-screen-spinner" value="true" />
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="orientation" value="portrait" />

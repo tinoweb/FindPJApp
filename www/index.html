@@ -43,6 +43,12 @@
 	<script type="text/javascript" src="https://www.controlcondo.com.br/controlcondo/v2/js/zepto.min.js"></script>
 	<script type="text/javascript" src="https://www.controlcondo.com.br/controlcondo/v2/js/jquery.mask.js"></script>
 	
+	<style>
+		.titulo{
+		    font-size: 14px;
+		    font-weight: 700;
+		}
+	</style>
 	<script type="text/javascript"> 
 		document.addEventListener("deviceready",onDeviceReady,false); 
 		
@@ -92,45 +98,6 @@
 			<div id="erro_msg" class="erro_msg"></div>
 		</div>
 		<div id="erro_box" style="width: 100%; height: 100%; float: left; margin: 0; display: none;"></div>
-		<div id="bg_box2" class="bg_box2">
-			<form name="busca_visitante" id="busca_visitante">
-				<label>Informe o RG</label>
-				<input type="text" name="rg" autofocus>
-				<a style="color:#3750a2;">Buscar</a> <a onClick="afed('','#bg_box2','','',2);" style="color:#F00;">Cancelar</a>
-			</form>
-		</div>
-			
-		<!-- ############# recovery senha ################# -->
-		<div class="sheet-modal recuperaSenha" id="recoveryPasswordLogin" style="">
-			<div class="toolbar">
-				<div class="toolbar-inner">
-					<div class="left">
-						<i class="fa fa-envelope" aria-hidden="true" style="margin-left: 10px;"></i>
-					</div>
-					<div class="right">
-						<a class="link" id="fechaRecuperaEmail" onclick="fechaRecoverEmail()" href="#">Fechar</a>
-					</div>
-				</div>
-			</div>
-			<div class="list" id="formSendEmail">
-			    <div class="item-content item-input">
-			      	<div class="item-inner">
-				        <div class="item-title">Digite o seu email</div>
-				        <div class="item-input-wrap">
-				          <input id="email_recupera" type="email" validate class="" name="email" placeholder="seuemail@mail.com" style="border: none;">
-				          <span class="input-clear-button"></span>
-				        </div>
-				        <button class="btn btn-primary btn-lg btn-block btn-no-border" style="color: white; width: 100%;margin-top: 10%;" id="" onclick="recuperaEmail()" name="entrar"> Recuperar </button>
-			      	</div>
-			    </div>
-			</div>
-		</div>
-		<!-- ############################## -->
-
-		<div id="wait" style="text-align: center; width: 100%; height: 100%;z-index: 19000; position: absolute; background-color: #51525475; display: none;">
-			<div class="preloader color-multi" style="margin-top: 70%"><span class="preloader-inner"><span class="preloader-inner-gap"></span><span class="preloader-inner-left"><span class="preloader-inner-half-circle"></span></span><span class="preloader-inner-right"><span class="preloader-inner-half-circle"></span></span></span></div>
-			<!--<img alt="" src="img/aguarde.gif" width="50" style="margin-top: 70%">-->
-		</div>
 
 		<div id="downloadProgress">
 			<div class="block-strong">
@@ -159,7 +126,7 @@
 		</div>
 		
 		<!--###################Tela Opcoes Primeiro Acesso ################### -->
-		<div id="primeiroAcesso" class="primeiroAcessoPage">
+		<div id="primeiroAcesso" class="primeiroAcessoPage" style="display: block;overflow: auto;">
 			<div class="navbar">
 		        <div class="navbar-bg">
 		        </div>
@@ -171,93 +138,49 @@
 		                </a>
 		            </div>
 		            <div class="title">
-		                Receber código de ativação
+		                Detalhe da Pesquisa
 		            </div>
 		        </div>
 		    </div>
-			<img src="img/logoicon.png" width="150">
-			<div class="row">
-				<p class="col-xs-12" style="position: relative;top: 20px;padding: 15px 41px;">
-					clica em um dos botões abaixo para escolher como quer receber o codigo de ativação para ter acesso ao seu condominio!
-				</p>
-			</div>
+			
 
-			<div id="" class="form-signin" style="top: 35px;position: relative;padding: 15px 14px;"> 
-				<div class="row" style="position: relative; padding: 12px;">
+			<div id="" class="form-signin"> 
+				
+				<!-- ############# receber pelo email ################# -->
+				<div class="row card items clearfix" style="font-size: 14px;text-align: left;">
+	               <div class="card-body col-md-12">
+	                    <h4>Dados da Empresa</h4>
+	                    <span><span class="titulo">Nome:</span>  <span id="nomeEmpresa"></span> </span><br>
+	                    <span><span class="titulo">CNPJ:</span>  <span id="cnpjEmpresa"></span> </span><br>
+	                    <span><span class="titulo">Situação:</span>  <span id="situacaoEmpresa"></span> </span><br>
+	                    <span><span class="titulo">Natureza Juridica:</span>  <span id="natJuridicaEmpresa"></span> </span><br>
+	                    <span><span class="titulo">Ativade Principal:</span> <span id="atividadePrincipalEmpresa"></span> </span> <br>
+	                    <span><span class="titulo">Email: </span> <span id="emailEmpresa"></span></span> <br>
+	                    <span><span class="titulo">Telefone: </span> <span id="telefoneEmpresa"></span></span> <br> 
+	                    <span><span class="titulo">Estado:</span> <span id="estadoEmpresa"></span></span>  <br>
+	                    <span><span class="titulo">Data abertura:</span> <span id="aberturaEmpresa"></span></span>
+	                </div>
+	            </div>
 
-					<!-- ############# receber pelo email ################# -->
-					<div class="col-xs-12" id="divRecevebyEmail">
-						<a href="#" style="color:white" data-sheet=".recebEmail" class="sheet-open btn btn-primary btn-lg btn-block btn-no-border">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-							Receber pelo e-mail 
-						</a> 
+	            <div class="row card items clearfix" style="font-size: 14px;text-align: left;">
+	               <div class="card-body col-md-12">
+	                    <h4>Outras Atividades</h4>
+	                    <span id="atividadesSecundarias">
+	                    	
+	                    </span><br>
+	                </div>
+	            </div>
 
-
-						
-						<div class="sheet-modal recebEmail" id="" style="height: 40%; display: block; display: none">
-							<div class="toolbar">
-								<div class="toolbar-inner">
-									<div class="left">
-										<i class="fa fa-envelope" aria-hidden="true" style="margin-left: 10px;"></i>
-									</div>
-									<div class="right">
-										<a class="link sheet-close" id="fecha_busca_pet" href="#">Fechar</a>
-									</div>
-								</div>
-							</div>
-							<div class="list" id="formSendEmail">
-							    <div class="item-content item-input">
-							      	<div class="item-inner">
-								        <div class="item-title">Digite o seu email</div>
-								        <div class="item-input-wrap">
-								          <input type="email" name="emailCode" validate id="inputReceveEmailToGetCode" required="true" placeholder="usuario@mail.com" style="border: none;">
-								          <span class="input-clear-button"></span>
-								        </div>
-								        <button class="btn btn-success btn-lg btn-block btn-no-border" style="color: white; width: 100%;margin-top: 10%;" id="btnSendEmailToGetCode" onclick="choosedMail()" name="entrar"> ENVIAR </button>
-							      	</div>
-							    </div>
-							</div>
-						</div>
-					</div>
-					<!-- ############################## -->
-
-
-					<!-- ############# receber pelo SMS ################# -->
-					<div class="hide"> <!--temporariamente escondido até implementar o o envio e recebimento de SMS-->
-					<div class="col-xs-12" style="position: relative;top: 14px;" id="divRecevebySMS">
-						<a href="#" style="color:white" data-sheet=".recebSMS" class="sheet-open btn btn-primary btn-lg btn-block btn-no-border">
-							<i class="fa fa-commenting-o" aria-hidden="true"></i>
-							Receber pelo SMS 
-						</a> 
-
-						<div class="sheet-modal recebSMS" id="" style="height: 40%; display: block; display: none">
-							<div class="toolbar">
-								<div class="toolbar-inner">
-									<div class="left">
-										<i class="fa fa-commenting-o" aria-hidden="true" style="margin-left: 10px;"></i>
-									</div>
-									<div class="right">
-										<a class="link sheet-close" id="fecha_busca_pet" href="#">Fechar</a>
-									</div>
-								</div>
-							</div>
-							<form class="list" id="formSendSMS">
-							    <div class="item-content item-input">
-							      	<div class="item-inner">
-								        <div class="item-title">Digite o seu Telefone</div>
-								        <div class="item-input-wrap">
-								          <input type="tel" validate required name="telefone" placeholder="(99) 99999-9999" style="border: none;">
-								          <span class="input-clear-button"></span>
-								        </div>
-								        <button type="button" style="width: 100%;margin-top: 10%;" class="button button-fill color-green link sheet-close" onclick="choosedSms()">ENVIAR</button>
-							      	</div>
-							    </div>
-							</form>
-						</div>
-					</div>
-					</div>
-					<!-- ############################## -->
-				</div>
+	            <div class="row card items clearfix" style="font-size: 14px;text-align: left;">
+	               <div class="card-body col-md-12">
+	                    <h4>Endereço da Empresa</h4>
+	                    <span><span class="titulo">Endereço:</span>  <span id="logradouroEmpresa"></span> </span><br>
+	                    <span><span class="titulo">Bairro:</span>  <span id="bairroEmpresa"></span> </span><br>
+	                    <span><span class="titulo">Numero:</span>  <span id="numeroEmpresa"></span> </span><br>
+	                    <span><span class="titulo">Tipo unidade:</span>  <span id="tipoUnidadeEmpresa"></span> </span><br>
+	                </div>
+	            </div>
+				<!-- ############################## -->
 			</div>
 		</div>
 

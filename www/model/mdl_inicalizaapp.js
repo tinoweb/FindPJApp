@@ -2,6 +2,7 @@
 
 findEmpresa = (data) => {
 	var url = `https://www.receitaws.com.br/v1/cnpj/${data}`;
+	// return false;
 	console.log(url);
 	$.ajax({
 		type: 'GET',
@@ -13,6 +14,27 @@ findEmpresa = (data) => {
         dataType   : 'json',
 		success: function(retorno){
 			console.log(retorno);
+			swich_tela_details();
+			$("#nomeEmpresa").html(retorno.nome);
+			$("#cnpjEmpresa").html(retorno.cnpj);
+			$("#natJuridicaEmpresa").html(retorno.natureza_juridica);
+			$("#atividadePrincipalEmpresa").html(retorno.atividade_principal[0].text);
+			$("#emailEmpresa").html(retorno.email);
+			$("#telefoneEmpresa").html(retorno.telefone);
+			$("#aberturaEmpresa").html(retorno.data_situacao);
+			$("#estadoEmpresa").html(retorno.uf);
+
+			$.each(retorno.atividades_secundarias, function(index, val) {
+				$("#atividadesSecundarias").append(`
+					<span class="titulo">Atividades:</span>  <span id="">${val.text}</span> <br> 
+				`); 
+			});
+
+			$("#logradouroEmpresa").html(retorno.logradouro);
+			$("#bairroEmpresa").html(retorno.bairro);
+			$("#numeroEmpresa").html(retorno.numero);
+			$("#tipoUnidadeEmpresa").html(retorno.tipo);
+			
         },
         error: function(error) {
         	console.log("tem informacoes com erro");
@@ -21,15 +43,14 @@ findEmpresa = (data) => {
 	});	
 }
 
-function swich_tela_login(){
-	afed('#login_ini','#initApp','','');
-	app2.sheet.create({
-	  el: '.loginApp',
-	  closeByOutsideClick: false,
-	  closeByBackdropClick: false,
-	  closeOnEscape: false
-	});
-	app2.actions.open('.loginApp', true);
+
+
+///////////////////////////////////////////////////////////////////
+
+
+
+function swich_tela_details(){
+	afed('#primeiroAcesso','#initApp','','');
 }
 
 loginOut = () => {
