@@ -1,0 +1,69 @@
+{
+  "atividade_principal": [
+    {
+      "text": "Fabricação de adesivos e selantes (Não dispensada *)",
+      "code": "20.91-6-00"
+    }
+  ],
+  "data_situacao": "21/09/2006",
+  "nome": "ATB INDUSTRIA E COMERCIO DE ADESIVO LTDA",
+  "uf": "SP",
+  "telefone": "(11) 4785-6600/ (11) 4785-6629",
+  "email": "fiscal@tekbond.com.br",
+  "atividades_secundarias": [
+    {
+      "text": "Fabricação de outros produtos químicos não especificados anteriormente (Não dispensada *)",
+      "code": "20.99-1-99"
+    },
+    {
+      "text": "Comércio atacadista de outros produtos químicos e petroquímicos não especificados anteriormente (Não dispensada *)",
+      "code": "46.84-2-99"
+    },
+    {
+      "text": "Comércio atacadista especializado em outros produtos intermediários não especificados anteriormente (Não dispensada *)",
+      "code": "46.89-3-99"
+    },
+    {
+      "text": "Comércio atacadista de lubrificantes (Não dispensada *)",
+      "code": "46.81-8-05"
+    },
+    {
+      "text": "Comércio atacadista de produtos de higiene, limpeza e conservação domiciliar (Não dispensada *)",
+      "code": "46.49-4-08"
+    },
+    {
+      "text": "Comércio atacadista de artigos de escritório e de papelaria (Não dispensada *)",
+      "code": "46.47-8-01"
+    },
+    {
+      "text": "Comércio atacadista de cosméticos e produtos de perfumaria (Não dispensada *)",
+      "code": "46.46-0-01"
+    }
+  ],
+  "situacao": "ATIVA",
+  "bairro": "PARQUE INDUSTRIAL RAMOS",
+  "logradouro": "R MARCELINO PNTO TEIXEIRA",
+  "numero": "1268",
+  "cep": "06.816-000",
+  "municipio": "EMBU DAS ARTES",
+  "porte": "DEMAIS",
+  "abertura": "21/09/2006",
+  "natureza_juridica": "206-2 - Sociedade Empresária Limitada",
+  "fantasia": "TEKBOND",
+  "cnpj": "08.425.051/0001-77",
+  "ultima_atualizacao": "2019-12-18T03:14:52.354Z",
+  "status": "OK",
+  "tipo": "MATRIZ",
+  "complemento": "",
+  "efr": "",
+  "motivo_situacao": "",
+  "situacao_especial": "",
+  "data_situacao_especial": "",
+  "capital_social": "0.00",
+  "qsa": [],
+  "extra": {},
+  "billing": {
+    "free": true,
+    "database": true
+  }
+}

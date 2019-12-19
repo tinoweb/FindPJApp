@@ -1,39 +1,59 @@
 // DONE BY TINO 22/10/2019
 
 findEmpresa = (data) => {
-	var url = `https://www.receitaws.com.br/v1/cnpj/${data}`;
+	// let data = data.replace(/[^\d]+/g,'');
+	resultado = ({ "cnpj": data.replace(/[^\d]+/g,'') });
+	console.log(resultado);
 	// return false;
+	var url = `https://www.receitaws.com.br/v1/cnpj/${resultado.cnpj}`;
 	console.log(url);
+	// return false;
 	$.ajax({
 		type: 'GET',
-		url: `https://www.receitaws.com.br/v1/cnpj/${data}`,
+		url: `https://www.receitaws.com.br/v1/cnpj/${resultado.cnpj}`,
 		crossDomain: true,
-		// beforeSend : function() { $("#wait").css("display", "block"); },
-		// complete   : function() { $("#wait").css("display", "none"); },
+		beforeSend : function() { app.dialog.preloader("Carregando...", 'blue'); },
+		complete   : function() { app.dialog.close(); },
         data       : {},
         dataType   : 'json',
 		success: function(retorno){
 			console.log(retorno);
-			swich_tela_details();
-			$("#nomeEmpresa").html(retorno.nome);
-			$("#cnpjEmpresa").html(retorno.cnpj);
-			$("#natJuridicaEmpresa").html(retorno.natureza_juridica);
-			$("#atividadePrincipalEmpresa").html(retorno.atividade_principal[0].text);
-			$("#emailEmpresa").html(retorno.email);
-			$("#telefoneEmpresa").html(retorno.telefone);
-			$("#aberturaEmpresa").html(retorno.data_situacao);
-			$("#estadoEmpresa").html(retorno.uf);
+			if (retorno.status == "ERROR") {
+				app.dialog.create({
+					title: "Pesquisar Empresa",
+					text: "CNPJ inválido! Tente um correto.",
+					buttons: [{
+						text:"Fechar"
+					}],
+					on: {
+					    close: function () {
+					    	console.log("sim fechado");
+					    }
+					},
+				}).open();
 
-			$.each(retorno.atividades_secundarias, function(index, val) {
-				$("#atividadesSecundarias").append(`
-					<span class="titulo">Atividades:</span>  <span id="">${val.text}</span> <br> 
-				`); 
-			});
+			}else{
+				swich_tela_details();
+				$("#nomeEmpresa").html(retorno.nome);
+				$("#cnpjEmpresa").html(retorno.cnpj);
+				$("#natJuridicaEmpresa").html(retorno.natureza_juridica);
+				$("#atividadePrincipalEmpresa").html(retorno.atividade_principal[0].text);
+				$("#emailEmpresa").html(retorno.email);
+				$("#telefoneEmpresa").html(retorno.telefone);
+				$("#aberturaEmpresa").html(retorno.data_situacao);
+				$("#estadoEmpresa").html(retorno.uf);
 
-			$("#logradouroEmpresa").html(retorno.logradouro);
-			$("#bairroEmpresa").html(retorno.bairro);
-			$("#numeroEmpresa").html(retorno.numero);
-			$("#tipoUnidadeEmpresa").html(retorno.tipo);
+				$.each(retorno.atividades_secundarias, function(index, val) {
+					$("#atividadesSecundarias").append(`
+						<span class="titulo">Atividades:</span>  <span id="">${val.text}</span> <br> 
+					`); 
+				});
+
+				$("#logradouroEmpresa").html(retorno.logradouro);
+				$("#bairroEmpresa").html(retorno.bairro);
+				$("#numeroEmpresa").html(retorno.numero);
+				$("#tipoUnidadeEmpresa").html(retorno.tipo);
+			}
 			
         },
         error: function(error) {
