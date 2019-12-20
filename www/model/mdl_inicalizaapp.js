@@ -1,66 +1,84 @@
 // DONE BY TINO 22/10/2019
 
 findEmpresa = (data) => {
-	// let data = data.replace(/[^\d]+/g,'');
+	
 	resultado = ({ "cnpj": data.replace(/[^\d]+/g,'') });
 	console.log(resultado);
-	// return false;
+
 	var url = `https://www.receitaws.com.br/v1/cnpj/${resultado.cnpj}`;
-	console.log(url);
-	// return false;
-	$.ajax({
-		type: 'GET',
-		url: `https://www.receitaws.com.br/v1/cnpj/${resultado.cnpj}`,
-		crossDomain: true,
-		beforeSend : function() { app.dialog.preloader("Carregando...", 'blue'); },
-		complete   : function() { app.dialog.close(); },
-        data       : {},
-        dataType   : 'json',
-		success: function(retorno){
-			console.log(retorno);
-			if (retorno.status == "ERROR") {
-				app.dialog.create({
-					title: "Pesquisar Empresa",
-					text: "CNPJ inválido! Tente um correto.",
-					buttons: [{
-						text:"Fechar"
-					}],
-					on: {
-					    close: function () {
-					    	console.log("sim fechado");
-					    }
-					},
-				}).open();
+	console.log(resultado.cnpj.length);
 
-			}else{
-				swich_tela_details();
-				$("#nomeEmpresa").html(retorno.nome);
-				$("#cnpjEmpresa").html(retorno.cnpj);
-				$("#natJuridicaEmpresa").html(retorno.natureza_juridica);
-				$("#atividadePrincipalEmpresa").html(retorno.atividade_principal[0].text);
-				$("#emailEmpresa").html(retorno.email);
-				$("#telefoneEmpresa").html(retorno.telefone);
-				$("#aberturaEmpresa").html(retorno.data_situacao);
-				$("#estadoEmpresa").html(retorno.uf);
+	if (resultado.cnpj.length<1) {
+		
+		app.dialog.create({
+			title: "Pesquisar Empresa",
+			text: "Digite um cnpj válido.",
+			buttons: [{
+				text:"Fechar"
+			}],
+			on: {
+			    close: function () {
+			    	console.log("sim fechado");
+			    }
+			},
+		}).open();
 
-				$.each(retorno.atividades_secundarias, function(index, val) {
-					$("#atividadesSecundarias").append(`
-						<span class="titulo">Atividades:</span>  <span id="">${val.text}</span> <br> 
-					`); 
-				});
+	}else{
+		$.ajax({
+			type: 'GET',
+			url: `https://www.receitaws.com.br/v1/cnpj/${resultado.cnpj}`,
+			crossDomain: true,
+			beforeSend : function() { app.dialog.preloader("Carregando...", 'blue'); },
+			complete   : function() { app.dialog.close(); },
+	        data       : {},
+	        dataType   : 'json',
+			success: function(retorno){
+				console.log(retorno);
+				if (retorno.status == "ERROR") {
+					app.dialog.create({
+						title: "Pesquisar Empresa",
+						text: "CNPJ inválido! Tente um correto.",
+						buttons: [{
+							text:"Fechar"
+						}],
+						on: {
+						    close: function () {
+						    	console.log("sim fechado");
+						    }
+						},
+					}).open();
 
-				$("#logradouroEmpresa").html(retorno.logradouro);
-				$("#bairroEmpresa").html(retorno.bairro);
-				$("#numeroEmpresa").html(retorno.numero);
-				$("#tipoUnidadeEmpresa").html(retorno.tipo);
-			}
-			
-        },
-        error: function(error) {
-        	console.log("tem informacoes com erro");
-			console.log(error);
-        }
-	});	
+				}else{
+					swich_tela_details();
+					$("#nomeEmpresa").html(retorno.nome);
+					$("#cnpjEmpresa").html(retorno.cnpj);
+					$("#natJuridicaEmpresa").html(retorno.natureza_juridica);
+					$("#atividadePrincipalEmpresa").html(retorno.atividade_principal[0].text);
+					$("#emailEmpresa").html(retorno.email);
+					$("#telefoneEmpresa").html(retorno.telefone);
+					$("#aberturaEmpresa").html(retorno.data_situacao);
+					$("#estadoEmpresa").html(retorno.uf);
+
+					$.each(retorno.atividades_secundarias, function(index, val) {
+						$("#atividadesSecundarias").append(`
+							<span class="titulo">Atividades:</span>  <span id="">${val.text}</span> <br> 
+						`); 
+					});
+
+					$("#logradouroEmpresa").html(retorno.logradouro);
+					$("#bairroEmpresa").html(retorno.bairro);
+					$("#numeroEmpresa").html(retorno.numero);
+					$("#tipoUnidadeEmpresa").html(retorno.tipo);
+				}
+				
+	        },
+	        error: function(error) {
+	        	console.log("tem informacoes com erro");
+				console.log(error);
+	        }
+		});	
+	}
+
 }
 
 
