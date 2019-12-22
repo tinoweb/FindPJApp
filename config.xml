@@ -51,6 +51,8 @@
         <splash density="port-xxxhdpi" src="www/res/screen/android/splash-port-xxxhdpi.png" />
         
         <allow-intent href="market:*" />
+        <resource-file src="google-services.json" target="app/google-services.json" />
+        <framework src="com.google.android.gms:play-services-location:11.8.0" />
     </platform>
     <platform name="ios">
         <icon height="57" platform="ios" src="www/res/icon/ios/icon.png" width="57" />
@@ -89,6 +91,7 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <resource-file src="GoogleService-Info.plist" />
         <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryUsageDescription">
             <key>NSPhotoLibraryUsageDescription</key>
             <string>need to photo library access to get pictures from there</string>
