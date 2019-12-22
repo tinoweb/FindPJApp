@@ -5,8 +5,6 @@
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
 	<link rel="stylesheet" type="text/css" href="css/material-icons.css" />
 	<link rel="stylesheet" type="text/css" href="css/octicons.css" />
-	<!-- <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" /> -->
-	<!-- <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.css" /> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	
@@ -19,16 +17,15 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta charset="UTF-8">
 		
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<script src="js/jquery-3.2.1.js"></script>
-	
-	<!-- <script src="js/jquery.mobile-1.4.5.js"></script> -->
+	<!--<script src="js/jquery-3.2.1.js"></script> -->
+		<!-- <script src="js/jquery.mobile-1.4.5.js"></script> -->
+
 	<script src="lib/framework7/js/framework7.js"></script>
 	<script scr="js/bootstrap.js"></script>
 	
@@ -44,11 +41,21 @@
 		    font-size: 14px;
 		    font-weight: 700;
 		}
+		.headercard{
+		    width: 100%;
+		    margin-bottom: 10px;
+		    background-color: #2396f3;
+		    background-color: #0000007a;
+		    color: white;
+		    font-size:;
+		}
+
 	</style>
 	<script type="text/javascript"> 
 		document.addEventListener("deviceready",onDeviceReady,false); 
 		
 		function onDeviceReady() { 
+			 navigator.splashscreen.show();
 			var push = PushNotification.init({ 
 				"android": {"senderID": "572833270659"},
 				"browser": {},
@@ -100,11 +107,11 @@
 			<!-- <h3>Busca Informacoes <br><br> pelo <br><br> CNPJ</h3> -->
 			<div id="formInit" class="form-signin" style="top: 30px position: relative;padding: 15px 14px;"> 
 				<div class="row" style="position: relative; padding: 12px;">
-					<input type="text" id="inputCNPJ" class="form-control input-lg" name="cnpj" >
+					<input type="text" id="inputCNPJ" class="input form-control input-lg" name="cnpj" >
 					<span class="input-clear-button" style="top: 35px;right: 17px;"></span>
 					<br>
 					
-					<button style="position: relative; top: 20px; padding: 15px 14px;" class="btn btn-block btn-lg btn-primary" onclick="findEmpresa($('#inputCNPJ').val())">PESQUISAR CNPJ</button>
+					<button style="position: relative;top: 20px;padding: 15px 14px;border-radius: 0px;box-shadow: 0 1px 5px 0 rgba(56, 55, 51, 0.5);" class="btn btn-block btn-lg btn-primary" onclick="findEmpresa($('#inputCNPJ').val())">PESQUISAR CNPJ</button>
 				</div>
 			</div>
 		</div>
@@ -132,8 +139,10 @@
 				
 				<!-- ############# receber pelo email ################# -->
 				<div class="row card items clearfix" style="font-size: 14px;text-align: left;">
-	               <div class="card-body col-md-12">
-	                    <h4>Dados da Empresa</h4>
+					<div class="card-header headercard bg-color-green">
+	                    <h4><i class="f7-icons">lightbulb_fill</i> Dados da Empresa</h4>
+					</div>
+	               	<div class="card-body col-md-12">
 	                    <span><span class="titulo">Nome:</span>  <span id="nomeEmpresa"></span> </span><br>
 	                    <span><span class="titulo">CNPJ:</span>  <span id="cnpjEmpresa"></span> </span><br>
 	                    <span><span class="titulo">Situação:</span>  <span id="situacaoEmpresa"></span> </span><br>
@@ -146,25 +155,31 @@
 	                </div>
 	            </div>
 
+
 	            <div class="row card items clearfix" style="font-size: 14px;text-align: left;">
-	               <div class="card-body col-md-12">
-	                    <h4>Outras Atividades</h4>
+	            	<div class="card-header headercard">
+	                    <h4><i class="f7-icons">house_alt</i> Endereço da Empresa</h4>
+					</div>
+	               	<div class="card-body col-md-12">
+	                    <span><span class="titulo">Endereço:</span>  <span id="logradouroEmpresa"></span> </span><br>
+	                    <span><span class="titulo">Bairro:</span>  <span id="bairroEmpresa"></span> </span><br>
+	                    <span><span class="titulo">Numero:</span>  <span id="numeroEmpresa"></span> </span><br>
+	                    <span><span class="titulo">Tipo unidade:</span>  <span id="tipoUnidadeEmpresa"></span> </span>
+	                </div>
+	            </div>
+				
+
+				<!-- ############################## -->
+	            <div class="row card items clearfix" style="font-size: 14px;text-align: left;">
+	            	<div class="card-header headercard bg-color-black">
+	                    <h4><i class="f7-icons">lightbulb</i> Outras Atividades</h4>
+					</div>
+	               	<div class="card-body col-md-12">
 	                    <span id="atividadesSecundarias">
 	                    	
 	                    </span><br>
 	                </div>
 	            </div>
-
-	            <div class="row card items clearfix" style="font-size: 14px;text-align: left;">
-	               <div class="card-body col-md-12">
-	                    <h4>Endereço da Empresa</h4>
-	                    <span><span class="titulo">Endereço:</span>  <span id="logradouroEmpresa"></span> </span><br>
-	                    <span><span class="titulo">Bairro:</span>  <span id="bairroEmpresa"></span> </span><br>
-	                    <span><span class="titulo">Numero:</span>  <span id="numeroEmpresa"></span> </span><br>
-	                    <span><span class="titulo">Tipo unidade:</span>  <span id="tipoUnidadeEmpresa"></span> </span><br>
-	                </div>
-	            </div>
-				<!-- ############################## -->
 			</div>
 		</div>
 
