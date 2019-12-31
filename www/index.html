@@ -1,7 +1,7 @@
 <!doctype html>
 <html><head>
 	<title>BUSCA CNPJ</title>
-	<link rel="stylesheet" type="text/css" href="css/calendario.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/calendario.css"> -->
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
 	<link rel="stylesheet" type="text/css" href="css/material-icons.css" />
 	<link rel="stylesheet" type="text/css" href="css/octicons.css" />
@@ -22,9 +22,6 @@
 		
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-	<!--<script src="js/jquery-3.2.1.js"></script> -->
-		<!-- <script src="js/jquery.mobile-1.4.5.js"></script> -->
 
 	<script src="lib/framework7/js/framework7.js"></script>
 	<script scr="js/bootstrap.js"></script>
@@ -52,162 +49,110 @@
 
 	</style>
 	<script type="text/javascript"> 
-		document.addEventListener("deviceready",onDeviceReady,false); 
-		
-		function onDeviceReady() { 
-			 navigator.splashscreen.show();
-			var push = PushNotification.init({ 
-				"android": {"senderID": "572833270659"},
-				"browser": {},
-				"ios": { 
-					"senderID": "572833270659",
-					"alert": true,
-					"sound": true, 
-					"vibration": true, 
-					"badge": true
-				},
-				"windows":{}
-			}); 
-
-			push.on('registration', function(data) { 
-				localStorage.setItem('registrationId', data.registrationId);
-			}); 
-				
-			push.on('notification', function(data) {
-				
-		  	}); 
-
-			push.on('error', function(e) { 
-				alert(e); 
-			}); 
-            
-			function onConfirm_condo(buttonIndex) {
-				if(buttonIndex===1){
-					console.log(buttonIndex);
-				}
-			}
-			altera_menu();
-		}  
+	
 	</script>
 	
 </head>
 <body >
 	<div id="app" style="background-color: #f1e1a6;">
-
+		<div class="view view-main">
 			<!--ERRO-->
-		<div id="bg_processando" class="bg_processando"> </div>
-		<div id="bg_box" class="bg_box" onClick="afed('','#bg_box','','',1);">
-			<div id="erro_msg" class="erro_msg"></div>
-		</div>
-		<div id="erro_box" style="width: 100%; height: 100%; float: left; margin: 0; display: none;"></div>
-		
-		<!--############ Tela do primero acesso ############## -->
-		<div id="initApp" class="login_iniNew">
-			<img src="img/empresa.png" width="150">
-			<!-- <h3>Busca Informacoes <br><br> pelo <br><br> CNPJ</h3> -->
-			<div id="formInit" class="form-signin" style="top: 30px position: relative;padding: 15px 14px;"> 
-				<div class="row" style="position: relative; padding: 12px;">
-					<input type="text" id="inputCNPJ" placeholder="Digite o CNPJ para pesquisar ..." class="input form-control input-lg" name="cnpj" >
-					<span class="input-clear-button" style="top: 35px;right: 17px;"></span>
-					<br>
+			<div id="bg_processando" class="bg_processando"> </div>
+			<div id="bg_box" class="bg_box" onClick="afed('','#bg_box','','',1);">
+				<div id="erro_msg" class="erro_msg"></div>
+			</div>
+			<div id="erro_box" style="width: 100%; height: 100%; float: left; margin: 0; display: none;"></div>
+			
+			<!--############ Tela do primero acesso ############## -->
+			<div id="initApp" class="login_iniNew">
+				<img src="img/empresa.png" width="150">
+				<!-- <h3>Busca Informacoes <br><br> pelo <br><br> CNPJ</h3> -->
+				<div id="formInit" class="form-signin" style="top: 30px position: relative;padding: 15px 14px;"> 
+					<div class="row" style="position: relative; padding: 12px;">
+						<input type="text" id="inputCNPJ" placeholder="Digite o CNPJ para pesquisar ..." class="input form-control input-lg" name="cnpj" >
+						<span class="input-clear-button" style="top: 35px;right: 17px;"></span>
+						<br>
+						
+						<button style="position: relative;top: 20px;padding: 15px 14px;border-radius: 0px;box-shadow: 0 1px 5px 0 rgba(56, 55, 51, 0.5);" class="btn btn-block btn-lg btn-primary" onclick="findEmpresa($('#inputCNPJ').val())">PESQUISAR CNPJ</button>
+					</div>
+				</div>
+			</div>
+			
+			<!--###################Tela Opcoes Primeiro Acesso ################### -->
+			<div id="primeiroAcesso" class="primeiroAcessoPage" style="display: block;overflow: auto;">
+				<div class="navbar">
+			        <div class="navbar-bg">
+			        </div>
+			        <div class="navbar-inner sliding">
+			            <div class="left">
+			                <a class="link back" href="#" onclick="primeiroAcessoBtnVoltar()">
+			                    <i class="icon icon-back">
+			                    </i>
+			                </a>
+			            </div>
+			            <div class="title">
+			                Detalhe da Pesquisa
+			            </div>
+			        </div>
+			    </div>
+				
+
+				<div id="" class="form-signin"> 
 					
-					<button style="position: relative;top: 20px;padding: 15px 14px;border-radius: 0px;box-shadow: 0 1px 5px 0 rgba(56, 55, 51, 0.5);" class="btn btn-block btn-lg btn-primary" onclick="findEmpresa($('#inputCNPJ').val())">PESQUISAR CNPJ</button>
+					<!-- ############# receber pelo email ################# -->
+					<div class="row card items clearfix" style="font-size: 14px;text-align: left;">
+						<div class="card-header headercard bg-color-green">
+		                    <h4><i class="f7-icons">lightbulb_fill</i> Dados da Empresa</h4>
+						</div>
+		               	<div class="card-body col-md-12">
+		                    <span><span class="titulo">Nome:</span>  <span id="nomeEmpresa"></span> </span><br>
+		                    <span><span class="titulo">CNPJ:</span>  <span id="cnpjEmpresa"></span> </span><br>
+		                    <span><span class="titulo">Situação:</span>  <span id="situacaoEmpresa"></span> </span><br>
+		                    <span><span class="titulo">Natureza Juridica:</span>  <span id="natJuridicaEmpresa"></span> </span><br>
+		                    <span><span class="titulo">Ativade Principal:</span> <span id="atividadePrincipalEmpresa"></span> </span> <br>
+		                    <span><span class="titulo">Email: </span> <span id="emailEmpresa"></span></span> <br>
+		                    <span><span class="titulo">Telefone: </span> <span id="telefoneEmpresa"></span></span> <br> 
+		                    <span><span class="titulo">Estado:</span> <span id="estadoEmpresa"></span></span>  <br>
+		                    <span><span class="titulo">Data abertura:</span> <span id="aberturaEmpresa"></span></span>
+		                </div>
+		            </div>
+
+
+		            <div class="row card items clearfix" style="font-size: 14px;text-align: left;">
+		            	<div class="card-header headercard">
+		                    <h4><i class="f7-icons">house_alt</i> Endereço da Empresa</h4>
+						</div>
+		               	<div class="card-body col-md-12">
+		                    <span><span class="titulo">Endereço:</span>  <span id="logradouroEmpresa"></span> </span><br>
+		                    <span><span class="titulo">Bairro:</span>  <span id="bairroEmpresa"></span> </span><br>
+		                    <span><span class="titulo">Numero:</span>  <span id="numeroEmpresa"></span> </span><br>
+		                    <span><span class="titulo">Tipo unidade:</span>  <span id="tipoUnidadeEmpresa"></span> </span>
+		                </div>
+		            </div>
+					
+
+					<!-- ############################## -->
+		            <div class="row card items clearfix" style="font-size: 14px;text-align: left;">
+		            	<div class="card-header headercard bg-color-black">
+		                    <h4><i class="f7-icons">lightbulb</i> Outras Atividades</h4>
+						</div>
+		               	<div class="card-body col-md-12">
+		                    <span id="atividadesSecundarias">
+		                    	
+		                    </span><br>
+		                </div>
+		            </div>
 				</div>
 			</div>
 		</div>
-		
-		<!--###################Tela Opcoes Primeiro Acesso ################### -->
-		<div id="primeiroAcesso" class="primeiroAcessoPage" style="display: block;overflow: auto;">
-			<div class="navbar">
-		        <div class="navbar-bg">
-		        </div>
-		        <div class="navbar-inner sliding">
-		            <div class="left">
-		                <a class="link back" href="#" onclick="primeiroAcessoBtnVoltar()">
-		                    <i class="icon icon-back">
-		                    </i>
-		                </a>
-		            </div>
-		            <div class="title">
-		                Detalhe da Pesquisa
-		            </div>
-		        </div>
-		    </div>
-			
+	</div>
 
-			<div id="" class="form-signin"> 
-				
-				<!-- ############# receber pelo email ################# -->
-				<div class="row card items clearfix" style="font-size: 14px;text-align: left;">
-					<div class="card-header headercard bg-color-green">
-	                    <h4><i class="f7-icons">lightbulb_fill</i> Dados da Empresa</h4>
-					</div>
-	               	<div class="card-body col-md-12">
-	                    <span><span class="titulo">Nome:</span>  <span id="nomeEmpresa"></span> </span><br>
-	                    <span><span class="titulo">CNPJ:</span>  <span id="cnpjEmpresa"></span> </span><br>
-	                    <span><span class="titulo">Situação:</span>  <span id="situacaoEmpresa"></span> </span><br>
-	                    <span><span class="titulo">Natureza Juridica:</span>  <span id="natJuridicaEmpresa"></span> </span><br>
-	                    <span><span class="titulo">Ativade Principal:</span> <span id="atividadePrincipalEmpresa"></span> </span> <br>
-	                    <span><span class="titulo">Email: </span> <span id="emailEmpresa"></span></span> <br>
-	                    <span><span class="titulo">Telefone: </span> <span id="telefoneEmpresa"></span></span> <br> 
-	                    <span><span class="titulo">Estado:</span> <span id="estadoEmpresa"></span></span>  <br>
-	                    <span><span class="titulo">Data abertura:</span> <span id="aberturaEmpresa"></span></span>
-	                </div>
-	            </div>
-
-
-	            <div class="row card items clearfix" style="font-size: 14px;text-align: left;">
-	            	<div class="card-header headercard">
-	                    <h4><i class="f7-icons">house_alt</i> Endereço da Empresa</h4>
-					</div>
-	               	<div class="card-body col-md-12">
-	                    <span><span class="titulo">Endereço:</span>  <span id="logradouroEmpresa"></span> </span><br>
-	                    <span><span class="titulo">Bairro:</span>  <span id="bairroEmpresa"></span> </span><br>
-	                    <span><span class="titulo">Numero:</span>  <span id="numeroEmpresa"></span> </span><br>
-	                    <span><span class="titulo">Tipo unidade:</span>  <span id="tipoUnidadeEmpresa"></span> </span>
-	                </div>
-	            </div>
-				
-
-				<!-- ############################## -->
-	            <div class="row card items clearfix" style="font-size: 14px;text-align: left;">
-	            	<div class="card-header headercard bg-color-black">
-	                    <h4><i class="f7-icons">lightbulb</i> Outras Atividades</h4>
-					</div>
-	               	<div class="card-body col-md-12">
-	                    <span id="atividadesSecundarias">
-	                    	
-	                    </span><br>
-	                </div>
-	            </div>
-			</div>
-		</div>
-
-		</div>
-		<!-- ############################################################ -->
-
+	<!-- ############################################################ -->
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
+ 		jQuery(document).ready(function($) {
 			$('#inputCNPJ').mask('00.000.000/0000-00');
 		});
+  	</script>
 
-		altera_menu();
-		app.initialize();
-		
-		$(document).ajaxStart(function(){
-			
-		});
-		$(document).ajaxComplete(function(completo){
-			console.log(completo);
-		});
-		
-		var app = new Framework7({
-			root: '#app'
-		});
-
-		window.onresize = function(){
-			
-		};
-	</script>
 </body>
 </html>
