@@ -1,4 +1,4 @@
-var $$ = Dom7;
+// var $$ = Dom7;
 
 var app = new Framework7({
 	// App root element
@@ -17,7 +17,7 @@ var app = new Framework7({
 	      path: '/index/',
 	      url: 'index.html',
 	    }
-	]
+    ],
 });
 
 
@@ -51,6 +51,3 @@ var app2 = {
 ***************************************************/
 // Show/hide preloader for remote ajax loaded pages
 // Probably should be removed on a production/local app
-$$(document).on('ajaxStart', function (e) {    
-    app.showPreloader('Cargando...');
-});

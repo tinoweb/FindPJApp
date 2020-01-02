@@ -85,7 +85,9 @@ findEmpresa = (data) => {
 
 ///////////////////////////////////////////////////////////////////
 
-
+function primeiroAcessoBtnVoltar(){
+	afed('#initApp','#primeiroAcesso','','',1);	
+}
 
 function swich_tela_details(){
 	afed('#primeiroAcesso','#initApp','','');

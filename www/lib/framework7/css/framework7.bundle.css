@@ -38,7 +38,7 @@
   :root .popup,
   :root .sheet-modal,
   :root .panel-left {
-    
+    --f7-safe-area-left: env(safe-area-inset-left);
     --f7-safe-area-outer-left: env(safe-area-inset-left);
   }
   :root .ios-right-edge,
@@ -5600,7 +5600,7 @@ i.icon {
   font-style: normal;
   position: relative;
 }
-.icon-back:after,
+.:after,
 .icon-prev:after,
 .icon-forward:after,
 .icon-next:after {
@@ -5627,7 +5627,7 @@ i.icon {
 .icon[class*="color-"] {
   color: var(--f7-theme-color);
 }
-.ios .icon-back,
+.ios .,
 .ios .icon-prev,
 .ios .icon-forward,
 .ios .icon-next {
@@ -5635,7 +5635,7 @@ i.icon {
   height: 20px;
   line-height: 20px;
 }
-.ios .icon-back:after,
+.ios .:after,
 .ios .icon-prev:after,
 .ios .icon-forward:after,
 .ios .icon-next:after {
@@ -5645,7 +5645,7 @@ i.icon {
 .ios .icon-next:after {
   font-size: 16px;
 }
-.ios .icon-back:after,
+.ios .:after,
 .ios .icon-prev:after {
   content: 'chevron_left_ios';
 }
@@ -5653,20 +5653,20 @@ i.icon {
 .ios .icon-next:after {
   content: 'chevron_right_ios';
 }
-.md .icon-back,
+.md .,
 .md .icon-forward,
 .md .icon-next,
 .md .icon-prev {
   width: 24px;
   height: 24px;
 }
-.md .icon-back:after,
+.md .:after,
 .md .icon-forward:after,
 .md .icon-next:after,
 .md .icon-prev:after {
   line-height: 1.2;
 }
-.md .icon-back:after {
+.md .:after {
   content: 'arrow_left_md';
 }
 .md .icon-forward:after {
@@ -5682,7 +5682,7 @@ i.icon {
 .aurora .material-icons {
   font-size: 18px;
 }
-.aurora .icon-back,
+.aurora .,
 .aurora .icon-prev,
 .aurora .icon-forward,
 .aurora .icon-next {
@@ -5690,13 +5690,13 @@ i.icon {
   height: 14px;
   line-height: 14px;
 }
-.aurora .icon-back:after,
+.aurora .:after,
 .aurora .icon-prev:after,
 .aurora .icon-forward:after,
 .aurora .icon-next:after {
   line-height: inherit;
 }
-.aurora .icon-back:after,
+.aurora .:after,
 .aurora .icon-prev:after {
   content: 'chevron_left_aurora';
 }
@@ -21198,4 +21198,3 @@ iframe#viAd {
   margin-left: 2px;
   transform: translate(-50%, -50%);
 }
-
