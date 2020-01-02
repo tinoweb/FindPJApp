@@ -10,7 +10,14 @@ var app = new Framework7({
 	// Enable swipe panel
 	panel: {
 		swipe: 'left',
-	}
+	},
+	routes: [
+	    {
+	      name: 'pgIndex',
+	      path: '/index/',
+	      url: 'index.html',
+	    }
+	]
 });
 
 
@@ -35,7 +42,6 @@ var app2 = {
 	  	console.log('receive app');
 		var parentElement = document.getElementById(id);
 		console.log('APP RECEIVED ID: '+id+ '-------------');
-		app2.setupPush();
 	},
 
   }
@@ -45,8 +51,6 @@ var app2 = {
 ***************************************************/
 // Show/hide preloader for remote ajax loaded pages
 // Probably should be removed on a production/local app
-$$(document).on('ajaxStart', function (e) 
-{    
-    //mostrar loading
-    myApp.showPreloader('Cargando...');
+$$(document).on('ajaxStart', function (e) {    
+    app.showPreloader('Cargando...');
 });
