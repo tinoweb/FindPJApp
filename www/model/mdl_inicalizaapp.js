@@ -51,6 +51,7 @@ findEmpresa = (data) => {
 				}else{
 					swich_tela_details();
 					$("#nomeEmpresa").html(retorno.nome);
+					$("#situacaoEmpresa").html(retorno.situacao);
 					$("#cnpjEmpresa").html(retorno.cnpj);
 					$("#natJuridicaEmpresa").html(retorno.natureza_juridica);
 					$("#atividadePrincipalEmpresa").html(retorno.atividade_principal[0].text);

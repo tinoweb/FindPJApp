@@ -36,6 +36,12 @@
     },
     "cordova-plugin-appavailability": {
       "PACKAGE_NAME": "com.controlcondo.phonega"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.buscaempresa.phonega"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "com.buscaempresa.phonega"
     }
   },
   "dependent_plugins": {}
