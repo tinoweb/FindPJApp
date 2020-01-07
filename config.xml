@@ -87,7 +87,6 @@
     <plugin name="cordova-plugin-globalization" spec="^1.0.9" />
     <plugin name="cordova-plugin-ionic-keyboard" source="npm" />
     <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
-    <engine name="android" spec="^7.1.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
     <feature name="File">
         <param name="android-package" value="org.apache.cordova.file.FileUtils" />

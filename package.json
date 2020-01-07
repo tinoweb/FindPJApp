@@ -19,7 +19,7 @@
     }
   },
   "dependencies": {
-    "cordova-android": "^7.1.4",
+    "cordova-android": "^8.1.0",
     "cordova-backgroundvideo": "0.0.22",
     "cordova-browser": "^6.0.0",
     "cordova-plugin-autostart": "git+https://github.com/ToniKorin/cordova-plugin-autostart.git",
