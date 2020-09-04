@@ -25,7 +25,7 @@
     "cordova-plugin-autostart": "git+https://github.com/ToniKorin/cordova-plugin-autostart.git",
     "cordova-plugin-battery-status": "^1.2.5",
     "cordova-plugin-device": "^1.1.7",
-    "cordova-plugin-inappbrowser": "^1.7.2",
+    "cordova-plugin-inappbrowser": "^3.1.0",
     "cordova-plugin-ionic-keyboard": "^2.0.5"
   },
   "devDependencies": {}
